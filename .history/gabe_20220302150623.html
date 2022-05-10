@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">hello, my name is Gabe</button>
+</body>
+<style>
+    #button {
+        background-color: blue;
+    }
+    #new-button {
+        background-color: red;
+    }
+</style>
+<script>
+    let count = 0;
+    const button = document.getElementById('button');
+    const newButton = document.createElement("button");
+    newButton.innerText = "hello, my name is Gabe";
+    newButton.id = "new-button";
+    
+    button.addEventListener('click', () => {
+        if (count % 2 === 0) {
+            document.body.appendChild(newButton);
+            document.body.removeChild(button);
+            count += 1;
+            console.log(document)
+        } else {
+            document.body.appendChild(button);
+            document.body.removeChild(newButton);
+            count += 1;
+        }
+    })
+    newButton.addEventListener('click', () => {
+        if (!count % 2 === 0) {
+            document.body.appendChild(button);
+            document.body.removeChild(newButton);
+            count += 1;
+        }
+    })
+
+</script>
+</html>

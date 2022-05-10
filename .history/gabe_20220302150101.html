@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">hello</button>
+</body>
+<style>
+    button {
+        background-color: blue;
+    }
+</style>
+<script>
+    let count = 0;
+    const button = document.getElementById('button');
+    button.addEventListener('click', () => {
+        if (count % 2 === 0) {
+            const newButton = document.createElement("button");
+            newButton.innerText = "Hello There";
+            newButton.className = "new-button";
+            document.body.appendChild(newButton);
+            document.body.removeChild(button);
+            count += 1;
+        }
+    })
+
+</script>
+</html>

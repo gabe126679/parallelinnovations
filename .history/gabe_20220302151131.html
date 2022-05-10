@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <button id="button">hello, my name is Gabe</button>
+    </body>
+    <style>
+        #button {
+            background-color: blue;
+            width: 50%;
+            position: absolute;
+            top: 5rem;
+            left: 200px;
+        }
+        #new-button {
+            background-color: red;
+            width: 50%;
+            position: absolute;
+            top: 5rem;
+            left: 200px;
+        }
+    </style>
+    <script>
+        let count = 0;
+        const button = document.getElementById('button');
+        const newButton = document.createElement("button");
+        newButton.innerText = "hello, my name is Gabe";
+        newButton.id = "new-button";
+        
+        button.addEventListener('click', () => {
+            if (count % 2 === 0) {
+                document.body.appendChild(newButton);
+                document.body.removeChild(button);
+                count += 1;
+                console.log(document)
+            } else {
+                document.body.appendChild(button);
+                document.body.removeChild(newButton);
+                count += 1;
+            }
+        })
+        newButton.addEventListener('click', () => {
+            if (!count % 2 === 0) {
+                document.body.appendChild(button);
+                document.body.removeChild(newButton);
+                count += 1;
+            }
+        })
+
+    </script>
+</html>
